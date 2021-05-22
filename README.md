@@ -1,18 +1,6 @@
-# Full Stack React
+# AWS - S3 Prime Academy Spike Challenge
 
-## Setup
-
-You will need postgres running.
-`brew services start postgres`
-OR
-`postgres -D /usr/local/var/postgres` 
-
-You will need a database called full-stack-react.
-Use Postico!
-
-You will need to setup a table per the database.sql.
-
-`npm install`
+Description here...
 
 
 
