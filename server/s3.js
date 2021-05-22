@@ -32,11 +32,11 @@ function uploadFile(file) {
 
     // After function runs =>
     // Uploads to the S3 bucket. 
-    return s3.upload(uploadParams).promise();
+    return s3.upload(uploadParams).promise()
 }
 exports.uploadFile = uploadFile;
 
-// Downloads a file from S3
+// downloads a file from S3
 // Pass in fileKey from multer
 function getFileStream(fileKey) {
     // Give S3 the fileKey and bucket name

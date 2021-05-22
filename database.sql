@@ -1,7 +1,0 @@
---CREATE DATABASE aws-s3-image
-
-CREATE TABLE images (
-	id SERIAL PRIMARY KEY,
-	imagePath VARCHAR(200) NOT NULL,
-	description VARCHAR(50) NOT NULL
-);
