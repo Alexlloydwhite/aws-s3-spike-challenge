@@ -1,10 +1,7 @@
-// import Dotenv and config it
+/** ---------- IMPORTS ---------- **/
 require('dotenv').config();
-// from aws-sdk, import S3
 const S3 = require('aws-sdk/clients/s3');
-// import file system
 const fs = require('fs');
-
 // importing secrets from the ENV
 const bucketName = process.env.AWS_BUCKET_NAME
 const region = process.env.AWS_BUCKET_REGION
@@ -16,7 +13,7 @@ const s3 = new S3({
     region,
     accessKeyId,
     secretAccessKey
-})
+});
 
 // uploads a file to S3
 // Takes the file from multer as a param
@@ -28,12 +25,11 @@ function uploadFile(file) {
         Bucket: bucketName,
         Body: fileStream,
         Key: file.filename,
-    }
-
+    };
     // After function runs =>
     // Uploads to the S3 bucket. 
     return s3.upload(uploadParams).promise()
-}
+};
 exports.uploadFile = uploadFile;
 
 // downloads a file from S3
@@ -43,8 +39,8 @@ function getFileStream(fileKey) {
     const downloadParams = {
         Key: fileKey,
         Bucket: bucketName
-    }
+    };
     // tell S3 to give us a read stream that we can return out of this function
     return s3.getObject(downloadParams).createReadStream();
-}
+};
 exports.getFileStream = getFileStream;
