@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import axios from 'axios'
-
 import './App.css'
+
+// MUI
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 // Async function used to post images
 async function postImage({ image, description }) {
@@ -39,11 +42,27 @@ function App() {
     <div className="App">
       <h1>AWS S3 Image Upload</h1>
       <form onSubmit={submit}>
-        <input onChange={fileSelected} type="file" accept="image/*"></input>
-        <input value={description} onChange={e => setDescription(e.target.value)} type="text"></input>
-        <button type="submit">Submit</button>
+        <input
+          onChange={fileSelected}
+          type="file"
+          accept="image/*"
+          id="image-upload"
+          style={{ display: 'none' }}
+        />
+        <label htmlFor="image-upload">
+          <Button component="span">
+            Select Image
+          </Button>
+        </label>
+        <TextField
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+          type="text"
+          size="small"
+          label="Image Description"
+        />
+        <Button type="submit">Upload</Button>
       </form>
-
       { images.map(image => (
         <div key={image}>
           <img src={image}></img>
