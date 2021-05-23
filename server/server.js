@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const util = require('util');
-const { uploadFile, getFileStream } = require('./s3');
+const { uploadFile, getFileStream } = require('./modules/s3');
 const bodyParser = require('body-parser');
 const multer = require('multer'); // image storage middleware
 
